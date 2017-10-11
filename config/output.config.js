@@ -1,10 +1,10 @@
 
-const path = require('path');
+const path = require('path')
 
 const outputConfig = {
-    filename: '[name]/index.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/'
-};
+  filename: '[name]/bundle.js',
+  path: path.resolve(__dirname, '../dist'),
+  publicPath: '/dist/'
+}
 
-module.exports = outputConfig;
+module.exports = outputConfig

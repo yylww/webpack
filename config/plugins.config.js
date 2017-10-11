@@ -1,20 +1,33 @@
 
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-let pluginsConfig = [
+const dirs = require('./base/dirs.config.js')
+const pages = require('./base/pages.config.js')
+
+const pagesDir = dirs.pagesDir
+const routes = pages.routes
+const templates = pages.templates
+
+const pluginsConfig = [
   new CleanWebpackPlugin(['dist'], {
     root: path.resolve(__dirname, '../')
   }),
-  new ExtractTextWebpackPlugin('[name]/index.css'),
-  new CopyWebpackPlugin([
-    { from: './src/libs', to: 'libs' },       // 把第三方插件复制到dist目录
-    { from: './src/images', to: 'images' }    // 把公共图片复制到dist目录
-  ])
-];
+  new ExtractTextWebpackPlugin('[name]/style.css')
+]
+
+templates.forEach((html, index) => {
+  const htmlPlugin = new HtmlWebpackPlugin({
+    filename: html,
+    template: path.resolve(pagesDir, html),
+    chunks: [routes[index]]
+  })
+  pluginsConfig.push(htmlPlugin)
+})
 
 if (process.env.NODE_ENV === 'production') {
   pluginsConfig.push(
@@ -25,4 +38,4 @@ if (process.env.NODE_ENV === 'production') {
   )
 }
 
-module.exports = pluginsConfig;
+module.exports = pluginsConfig

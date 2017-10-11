@@ -1,5 +1,5 @@
 
-const path = require('path');
+const path = require('path')
 
 const resolveConfig = {
   extensions: ['.js', '.jsx'],
@@ -12,4 +12,4 @@ const resolveConfig = {
   }
 }
 
-module.exports = resolveConfig;
+module.exports = resolveConfig
