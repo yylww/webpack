@@ -33,6 +33,4 @@ pages.scripts.forEach((item) => {
   pages.routes.push(route)
 })
 
-console.log(pages)
-
 module.exports = pages  

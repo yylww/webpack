@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --open",
-    "dist": "cross-env NODE_ENV=production webpack"
+    "dist": "cross-env NODE_ENV=production webpack",
+    "mock": "json-server --watch mock/data.json --port 9001"
   },
   "keywords": [],
   "author": "yuyi",

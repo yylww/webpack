@@ -1,0 +1,9 @@
+div {
+  background: url(../images/1.jpg) no-repeat;
+}
+
+h1 {
+  color: #22c485;
+  text-decoration: underline;
+  background: black;
+}

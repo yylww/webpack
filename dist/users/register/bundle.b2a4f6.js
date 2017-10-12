@@ -1,0 +1,1 @@
+webpackJsonp([2],{5:function(e,o,s){"use strict";s(1),console.log("register")}},[5]);

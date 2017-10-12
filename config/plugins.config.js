@@ -17,14 +17,23 @@ const pluginsConfig = [
   new CleanWebpackPlugin(['dist'], {
     root: path.resolve(__dirname, '../')
   }),
-  new ExtractTextWebpackPlugin('[name]/style.css')
+  new ExtractTextWebpackPlugin('[name]/style.[contenthash:6].css'),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'commons',
+    filename: 'assets/scripts/common.[chunkhash:6].js',
+    minChunks: 2
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'webpack-runtime',
+    filename: 'assets/scripts/webpack-runtime.[hash:6].js'
+  })
 ]
 
 templates.forEach((html, index) => {
   const htmlPlugin = new HtmlWebpackPlugin({
     filename: html,
     template: path.resolve(pagesDir, html),
-    chunks: [routes[index]]
+    chunks: ['webpack-runtime', 'commons', routes[index]]
   })
   pluginsConfig.push(htmlPlugin)
 })
