@@ -4,6 +4,7 @@ const devServerConfig = {
   contentBase: false,
   historyApiFallback: true,
   inline: true,
+  open: true,
   port: 9000,
   proxy: {
     '/api/*': {

@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --open",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server",
     "dist": "cross-env NODE_ENV=production webpack",
     "mock": "json-server --watch mock/data.json --routes mock/routes.json --port 9001",
     "server": "node server.js"
