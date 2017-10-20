@@ -1,1 +1,0 @@
-webpackJsonp([0],[function(o,n,s){"use strict";console.log("components/alert.js"),window.onload=function(){var o=[1,2,3],n=0;o.forEach(function(o){n+=o}),console.log(n)}},function(o,n,s){"use strict";console.log("libs/swipe.js")}]);
