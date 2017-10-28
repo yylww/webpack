@@ -1,1 +1,0 @@
-webpackJsonp([0],[function(s,o,n){"use strict";console.log("components/alert.js")},function(s,o,n){"use strict";console.log("libs/swipe.js")}]);

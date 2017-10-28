@@ -4,12 +4,12 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 const moduleConfig = {
   rules: [
     {
-      test: /\.js|.jsx$/,
+      test: /\.jsx?$/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['env']
+          presets: ['env', 'react']
         }
       }
     },
