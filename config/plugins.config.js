@@ -21,9 +21,7 @@ const pluginsConfig = [
 ]
 
 templates.forEach((html, index) => {
-  console.log(pagesDir, html, routes[index])
   const htmlPlugin = new HtmlWebpackPlugin({
-    // filename: html,
     filename: `html/${routes[index]}.html`,
     template: path.resolve(pagesDir, html),
     chunks: ['webpack-runtime', 'commons', routes[index]]

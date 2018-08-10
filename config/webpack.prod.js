@@ -12,5 +12,3 @@ module.exports = {
   devtool: 'source-map',
   cache: false
 }
-
-console.log('****** production *******')

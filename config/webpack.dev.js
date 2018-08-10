@@ -12,5 +12,3 @@ module.exports = {
   devtool: 'eval-source-map',
   cache: true
 }
-
-console.log('****** development *******')

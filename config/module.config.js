@@ -65,7 +65,8 @@ const moduleConfig = {
       use: {
         loader: 'html-loader',
         options: {
-          attrs: ['img:src']
+          attrs: ['img:src'],
+          minimize: process.env.NODE_ENV === 'production' ? true : false
         }
       }
     }
