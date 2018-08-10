@@ -4,7 +4,6 @@ const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const dirs = require('./base/dirs.config.js')
 const pages = require('./base/pages.config.js')
@@ -14,37 +13,22 @@ const routes = pages.routes
 const templates = pages.templates
 
 const pluginsConfig = [
+  new webpack.HotModuleReplacementPlugin(),
   new CleanWebpackPlugin(['dist'], {
     root: path.resolve(__dirname, '../')
   }),
-  new ExtractTextWebpackPlugin('[name]/style.[contenthash:6].css'),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'commons',
-    filename: 'assets/scripts/common.[chunkhash:6].js',
-    minChunks: 2
-  }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'webpack-runtime',
-    filename: 'assets/scripts/webpack-runtime.[hash:6].js'
-  })
+  new ExtractTextWebpackPlugin('styles/[name].[hash:6].css')
 ]
 
 templates.forEach((html, index) => {
+  console.log(pagesDir, html, routes[index])
   const htmlPlugin = new HtmlWebpackPlugin({
-    filename: html,
+    // filename: html,
+    filename: `html/${routes[index]}.html`,
     template: path.resolve(pagesDir, html),
     chunks: ['webpack-runtime', 'commons', routes[index]]
   })
   pluginsConfig.push(htmlPlugin)
 })
-
-if (process.env.NODE_ENV === 'production') {
-  pluginsConfig.push(
-    new webpack.optimize.UglifyJsPlugin({
-      warnings: false,
-      comments: false
-    })
-  )
-}
 
 module.exports = pluginsConfig

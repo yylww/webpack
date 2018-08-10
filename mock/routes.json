@@ -1,5 +1,0 @@
-{
-  "/api/*": "/$1",
-  "/posts/:category": "/posts?category=:category",
-  "/:resource/:id/show": "/:resource/:id"
-}

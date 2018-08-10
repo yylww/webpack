@@ -8,10 +8,10 @@ const routesArr = pages.routes
 const scriptArr = pages.scripts
 
 const entryConfig = {}
-// const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'
 
 routesArr.forEach((route, index) => {
-	entryConfig[route] = path.resolve(pagesDir, scriptArr[index])
+  entryConfig[route] = [path.resolve(pagesDir, scriptArr[index]), hotMiddlewareScript]
 })
 
 module.exports = entryConfig

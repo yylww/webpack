@@ -1,0 +1,18 @@
+
+@font-face {
+  font-family: jinxiqingli;
+  src: url('../../public/fonts/JinXiQingLi-2.ttf')
+}
+
+
+h1 {
+  color: red;
+  font-family: jinxiqingli;
+}
+
+div {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  background: url('./images/1.jpg') no-repeat;
+}

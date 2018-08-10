@@ -1,1 +1,0 @@
-webpackJsonp([4],{17:function(n,o,t){"use strict";t(10),console.log("index111"),fetch("/api/posts").then(function(n){return n.json()}).then(function(n){console.log(n)})}},[17]);

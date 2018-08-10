@@ -11,14 +11,6 @@ const options = {
   cwd: pageDir, // 在pages目录下查找
   sync: true,   // 同步
 }
- 
-/* 导出一个对象，本例中为 
- *  { 
- *    routes: ['index', 'users/login', 'users/register'], 
- *    scripts: ['index/index.js', 'users/login/login.js', 'users/register/register.js']
- *    templates: ['index/index.html', 'users/login/login.html', 'users/register/register.html']
- *  }
- */
 
 const pages = {
   routes: [],
